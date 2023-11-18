@@ -1,0 +1,19 @@
+class Solution
+{
+    public:
+    Node* reverseDLL(Node * head)
+    {
+        //Your code here
+        Node *nxt = head,*pre;
+        
+        while(nxt != NULL){
+            Node *tmp = nxt->next;
+            Node *t = nxt->prev;
+            nxt->prev = nxt->next;
+            nxt->next = t;
+            pre = nxt;
+            nxt = tmp;
+        }
+        return pre;
+    }
+};
